@@ -1,0 +1,2 @@
+This is a bvh python tool for processing the bvh motion capture data. This tool is dependent on the package cgkit in which some models related
+to mocap bvh processing are implemented.

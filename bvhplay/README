@@ -1,0 +1,361 @@
+                  (README v1.02, September 18, 2008)
+
+This is the readme file for BVHplay, a free BVH player.
+
+You can get BVHplay at www.cgspeed.com or http://sourceforge.net/projects/bvhplay
+
+BVHplay uses portions of CGkit, the Python Computer Graphics kit,
+available at cgkit.sourceforge.net.  A copy of the license from
+Appendix A of the cgkit documentation is supplied with the BVHplay
+release in the file "cgkit-license"
+
+BVHplay also uses portion of Numpy, a math library for Python.  A copy
+of the license for Numpy is supplied with the BVHplay release in the
+file "numpy-license"
+
+--------------------------------------------------------
+
+CONTENTS
+
+1. Installation
+2. Features and limitations
+3. Relevant web sites and references
+4. Copyright and open source statement
+5. FAQ
+
+------------------------------------------
+
+1. INSTALLATION
+
+1.1 Windows: installing from the packaged release
+
+As this is the first time I've publicly released any software that
+I've written, I decided to avoid creating an installer and instead
+simply provide a Zip archive that contains the needed files to run
+bvhplay.  This means:
+
+  - Nothing that hacks your Windows registry.
+  - No new icons installed on your desktop or start tray without asking.
+  - No files copied to mysterious places on your hard drive.
+  - No DLLs or other files installed in your operating system folders.
+  - No mystery scripts set up to run every time you boot.
+  - You just download, unzip, and you're ready to go..
+
+To use BVHplay on Windows, unZip the .zip file into the directory of
+your choice, then go into the bvhplay directory and look for the file
+named "bvhplay.exe".  That's what you want to run.  You can
+right-click on it and choose "create shortcut" if you'd like to set up
+a shortcut that you can then drag to your desktop as an icon.
+
+You can't move the actual bvhplay.exe file out of the bvhplay directory
+because it looks within its own directory for the other files.
+
+
+
+1.2 Linux: installing the binary from the packaged release
+
+The binary-release .tar.gz file should contain a standalone executable
+called "bvhplay".  Simply run BVHplay from your shell command line to
+start BVHplay:
+     linux% ./bvhplay
+Or you can create a desktop icon that runs it.
+
+
+1.3 Macintosh
+
+There is presently (September 2008) no prebuilt Macintosh version, so
+you'll need to install from the source code, which isn't very difficult.
+
+
+1.4 Installing from the playbvh source code
+
+Working with the Python source code of playbvh is easy, however you do
+need to have Python, and you need to install the two Python packages
+on which playbvh depends.  Here are the steps:
+
+Step 0: Install Python.  Any modern distribution of Linux should ship
+with Python preinstalled these days, or should make it easy for you to
+semi-automatically install Python.  PlayBVH was developed under Python
+2.5.1, though it should generally work with recent older versions of
+Python.  If you'd like to install Python directly from the official
+Python release site, you can get that at www.python.org/download/
+
+Step 1: Download and install cgkit from one of these URLs:
+ http://sourceforge.net/project/showfiles.php?group_id=50475&package_id=44077
+ http://cgkit.sourceforge.net/download.html
+The build process is fairly simple.
+
+Step 2: Download and install Numpy from one of these URLs:
+ http://sourceforge.net/project/showfiles.php?group_id=1369&package_id=175103
+ http://numpy.scipy.org/
+The build process is fairly simple, but does involve quite a bit of C
+compilation via gcc.
+
+Step 3: Create a directory and put all of the following BVHplay files into it:
+     - BVHplay.py
+     - geo.py
+     - skeleton.py
+     - transport.py
+     - menu.py
+     - camera.py
+
+Step 4: Make all the python files executable and readable.  From your
+Linux prompt:
+     unix% chmod a+rx *.py
+
+Step 5: Run BVHplay.  From your Linux prompt:
+     unix% ./BVHplay.py
+The first time you run it will take a few seconds because Python has
+to create the .pyc "compiled" versions of the .py files.
+
+------------------------------------------
+
+2. Features and limitations of BVHplay
+
+Features and facts:
+
+- Plays any BVH file that conforms to the basic BVH file format.  It
+  doesn't matter what skeleton is represented by the file, BVHplay
+  should be able to play it.
+
+- Resizable view window.  Some BVH players force you to display the
+  playback in a small or fixed-size window.  BVHplay doesn't do this -
+  you can make the animation view window as large as your screen if you
+  want to.
+
+- Mouseless "asdw"-style camera control which people will either love
+  or hate.  You can control the view camera just one hand.  Modeled
+  after video game left-right-forward-back first-person keyboard
+  control.
+
+- Four degrees-of-freedom camera control allows you to position the
+  camera pretty much any where you want to watch the BVH animation.
+  You can also move the camera during the animation playback if you
+  like.
+
+- Provides the usual transport control buttons that you'd expect to
+  see in an animation program: play, stop, step forward, step back, go
+  to start, go to end.
+
+- Optional grid display, XYZ axis display at world origin, and camera
+  position display.
+
+- Built-in help.  If you forget the keyboard commands, just bring up
+  the help screen and they're in there.
+
+- Doesn't use OpenGL.  This means no video card driver issues, and
+  keeps the source code simple
+
+- Written entirely in Python.  Should be (very) easy to port between
+  platforms.
+
+- The GUI is coded using Python's Tkinter GUI library.  This means
+  that the 3D perspective functionality is "faked" using Tkinter's
+  2D-only canvas functionality.  So BVHplay is a good example of how
+  to do simple animation in Python.
+
+
+Limitations:
+
+- BVHplay only plays back BVH -- it's not a BVH file or animation editor.
+  There is no "save" option because there's nothing to save.
+
+- True realtime playback not supported for animation sequences faster
+  than 30fps.  Most BVH files are 30fps (or even 24fps), however some
+  are 60fps or even 120fps.  BVHplay can still play those files, it
+  just won't play the animation back in realtime -- it will be a bit
+  slower.
+
+- Doesn't provide full 6 degrees-of-freedom camera control.  Camera
+  tilt left/right and camera tilt forward/back aren't supported.
+  However, I have yet to encounter a BVH file that actually needed the
+  ability to tilt the camera like this.
+
+-----------------------------------------------------
+
+3. Relevant web sites and references
+
+Web sites:
+  BVHplay: www.cgspeed.com  and http://sourceforge.net/projects/bvhplay
+  CGkit: http://cgkit.sourceforge.net
+  Numpy: http://numpy.scipy.org
+
+
+Books:
+
+Foley, van Dam, Feiner, and Hughes: _Computer Graphics Principles and
+Practice_, 2nd ed., Prentice Hall, 1996
+
+Mark Lutz, _Programming Python_, 3rd edition, O'Reilly Publishers, 2006
+
+Rick Parent, _Computer Animation Algorithms & Techniques_, 2nd ed.,
+Morgan Kaufmann, 2008
+
+-----------------------------------------------------
+
+4. Copyright and open source statement
+
+BVHplay is copyright (c) 2008 Bruce Hahne.  I didn't write the CGkit
+or Numpy Python library modules and don't maintain copyright over them
+-- please see the separate "cgkit-license" and "numpy-license" files
+for copyright and licensing information about those modules.
+
+BVHplay is usable as open source software under the terms of version
+3.0 of the Gnu Public License, which is available at
+www.gnu.org/licenses/gpl.html
+
+The author of BVHplay can be reached at hahne@io.com
+
+-----------------------------------------------------
+
+5. FAQ version 0.1
+
+WATCH OUT -- this is unlikely to be the most update FAQ -- please see
+www.cgspeed.com for the most current version.
+
+
+Q: How do I control the camera?
+A: See help-->command list within BVHplay.  Here's the summary:
+   a: move camera left
+   d: move camera right
+   s: move camera back
+   w: move camera forward
+   q: rotate camera right
+   e: rotate camera left
+   r: move camera up
+   f: move camera down
+
+The use of ASDW for camera moves is designed to mimic the common use
+of these keys in video game control.  In other words, many of us are
+already trained to use ASDW for camera move, so BVHplay just uses that
+convention.
+
+
+Q: What are the red, green, and blue lines that show up in the viewport?
+
+A: These axis lines show you where the X (red), Y (green), and Z (blue)
+axes are.  These 3 line segments meet at the origin (0,0,0) of
+worldspace.  If you don't want to see them, you can turn them off from
+the Settings menu.
+
+
+Q: What are the coordinate systems in use within BVH, and how is the
+camera set up?
+
+A: Worldspace is a right-handed space with the Y axis pointing up.
+This is a very common setup used by many popular animation programs,
+though it isn't universal.  The default camera position faces forward
+along the NEGATIVE world Z axis, so that your camera sits at a
+positive Z value and looks towards the scene.  Each time you load a
+new BVH file, BVHplay resets the camera position to a rotation and
+position that attempts to give you a reasonable initial view of the
+animated figure.  Internally, the camera uses a left-handed coordinate
+system with the camera-space Z axis pointed in the view direction.
+This means that in the initial camera position, the camera-space Z
+axis points in the opposite direction from the (blue) worldspace Z
+axis.  However, the camera's coordinate system is entirely internal to
+BVHplay and has nothing to do with the Camera position readout shown
+on the screen.
+
+
+Q: When I load a BVH file, the animated figure is far above (or below)
+the grid.  What's wrong?
+
+A: Some BVH files have the hips at a very high or very low position,
+such that the feet are either far above the ground (Y=0) or below the
+ground.  BVHplay simply follows the dataset of the BVH file and
+positions the figure wherever the BVH file says.  If your BVH file
+says that the figure should have its hips up in the clouds, that's
+where BVHplay will put it.
+
+
+Q: How can I (fix the figure height / change the figure orientation /
+change the motion / eliminate motion capture artifacts / etc)?
+
+A: Within BVHplay, you can't.  BVHplay is designed to be a quick and
+easy BVH playback tool, not a motion editor.  However most modern
+character animation software has the ability to make these sorts of
+adjustments to animation clips.  You could also try using bvhacker,
+from http://davedub.co.uk/bvhacker/ , although bvhacker only runs on
+Windows and has a strong emphasis on prepping BVH for SecondLife.
+
+
+Q: The grid doesn't extend forever -- it's just a finite rectangle.
+What's up with this?
+
+A: BVHplay draws a grid large enough to cover the XZ (horizontal
+plane) space that the BVH figure traverses throughout its motion.  To
+avoid complexity and the need to manage a lot of line segment objects,
+BVHplay doesn't support an "infinite mesh" that covers the entire
+world no matter where you move the camera.  The mesh will always cover
+the physical floorspace that your figure travels throughout its
+motion, which is generally enough to get the animation visibility that
+BVHplay is designed to provide.
+
+
+Q: When I play back an animation, it doesn't play back in realtime -
+it's slower than it should be.  What's going on?
+
+A: Testing on a modern 2.4GHz Intel Linux box suggested that the Python code
+of BVHplay runs fast enough to play 30fps animations in real-time, but
+doesn't typically run fast enough to play 60fps or 120fps animations
+in realtime.  The internal timing system of BVHplay is set up to be
+more conservative about animations faster than 30fps, and errs on the
+side of always displaying each frame rather than take the risk of the
+animation locking up, which is what happens if your CPU can't keep up
+with the playback rate.  The limitation here is presumably due to
+Python (which is a quasi-interpreted language) and Tkinter, neither of
+which are designed to be high-speed graphics engines.
+
+To make your animation play back slightly faster, play it through from
+start to finish all the way once.  The second and future playbacks
+should be slightly faster.  BVHplay does the internal trigonometric
+computations for each keyframe on a per-keyframe basis the first time
+it plays the keyframe, and then saves them for future use.  So the
+first time you play your animation, it might run a bit slower than it
+will the second time and beyond.
+
+I've also observed that even 30fps animations don't play back in
+realtime on a dual-core Athlon 4600 box, although CPU doesn't get high
+at all.  More Windows speed testing will be necessary -- it's possible
+that Python's internal timing routines, which bvhplay uses to compute
+the 1/30-second time intervals between frames, aren't working quite as
+they're supposed to under Windows.
+
+
+Q: How can I determine the frame rate at which my BVH animation SHOULD
+play back?
+
+A: Use a text editor or word processor to look at the text of the BVH
+file and find the "Frame Time" line.  Take the reciprocal of the value
+to determine fps (frames per second):
+   A Frame Time of 0.033333 is 30fps
+   A Frame Time of 0.016667 is 60fps
+   A Frame Time of 0.008333 is 120fps
+
+
+Q: My animation playback really crawls, 3x or 4x slower than it was
+recorded (captured) in the real world.  What's up?
+
+A: Some BVH files were captured at 60fps or 120fps, but have the Frame
+Time value set to 0.033333 (30fps) in the BVH file.  This is an error
+with the BVH file, not with BVHplay.  If you like, you can manually
+edit the BVH file and adjust the Frame Time value to something more
+appropriate, the reload the file in BVHplay.  Remember that BVHplay
+doesn't play 60fps or 120fps animations quite at realtime.  Testing on
+my own 2.4GHz machine showed on the second playback, BVHplay played a
+1029 120fps animation in 12 seconds, which is a playback rate of about
+85fps instead of the desired 120fps.  So the 120fps animation ran at
+about 2/3 normal speed.
+
+
+Q: I can't move the slider to frame 0 - why not?
+
+A: BVHplay numbers animation frames starting at 1, not 0.  There's no
+animation data at frame 0.  The reason why the slider bar labeling
+starts at "0" instead of "1" is because of the behavior of the
+auto-numbering system of Tkinter's "slider" widget.  If I started the
+fixed slider numbering at "1", then the displayed numbers would be
+numbers such as "1, 101, 201, 301..." instead of 1, 100, 200, 300...
+So the slider label shows a "keyframe 0" position even though you
+can't actually move to that position.
