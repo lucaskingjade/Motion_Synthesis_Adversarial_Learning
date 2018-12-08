@@ -10,3 +10,7 @@ This repository contains the open source code which reproduces the results for t
 
    * Keras
    * ... 
+
+4) Open a terminal, navigate to this repository, and type the following commands to train the following models:
+
+    * ...
