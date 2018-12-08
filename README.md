@@ -7,5 +7,6 @@ This repository contains the open source code which reproduces the results for t
 1) Download the EMILYA dataset. (careful, it is ~300 GB)
 2) Clone this repository code to your computer, and have it in the same directory as your folder containing the EMILYA dataset
 3) Install the relevant packages
+
   a) Keras
   b) ... 
