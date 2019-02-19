@@ -11,7 +11,7 @@ This repository contains the open source code which reproduces the results for t
    * Keras
    * matlotlib
 
-4)For training the models in the paper, you should navigate to the 
+4) For training the models in the paper, you should navigate to the 
 "\Training" directory under the root directory of the project and there you can find the following five folders:
 
 Conditional\_SAAE				
