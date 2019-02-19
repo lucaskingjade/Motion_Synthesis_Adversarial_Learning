@@ -4,8 +4,10 @@ This repository contains the open source code which reproduces the results for t
 
 # How to Reproduce the Results
 
-1) Download the EMILYA dataset. (careful, it is ~300 GB)
+1) For download the EMILYA dataset, you should contact the owner [Catherine Pelachaud](http://pages.isir.upmc.fr/~pelachaud/).
+
 2) Clone this repository code to your computer, and have it in the same directory as your folder containing the EMILYA dataset
+
 3) Install the relevant packages
 
    * Keras
