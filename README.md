@@ -9,8 +9,22 @@ This repository contains the open source code which reproduces the results for t
 3) Install the relevant packages
 
    * Keras
-   * ... 
+   * matlotlib
 
-4) Open a terminal, navigate to this repository, and type the following commands to train the following models:
+4)For training the models in the paper, you should navigate to the 
+"\Training" directory under the root directory of the project and there you can find the following five folders:
 
-    * ...
+Conditional\_SAAE				
+
+Seq\_AAE 
+
+Double\_GAN\_Continuous\_Emotion\_Representation
+
+Seq\_VAE
+
+Double\_Gan\_Condition\_SAAE 
+
+These folders are named by the model's name. Enter each of the folders, you can find the training file and evaluation scripts in a subfolder named '\evaluation'. By running the training file in terminal, you can train the model from scratch. If you want to tune the hyperparameters, you can directly modified them in the training file.
+
+
+  
