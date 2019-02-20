@@ -6,7 +6,7 @@ This repository contains the open source code which reproduces the results for t
 
 1) For download the EMILYA dataset, you should contact the owner [Catherine Pelachaud](http://pages.isir.upmc.fr/~pelachaud/).
 
-2) Clone this repository code to your computer, and have it in the same directory as your folder containing the EMILYA dataset
+2) Clone this repository code to your computer and rename the root folder as "Seq\_AAE\_V1" . Put dataset into the
 
 3) Install the relevant packages
 
