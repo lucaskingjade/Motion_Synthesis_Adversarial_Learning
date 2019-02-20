@@ -6,14 +6,16 @@ This repository contains the open source code which reproduces the results for t
 
 1) For download the EMILYA dataset, you should contact the owner [Catherine Pelachaud](http://pages.isir.upmc.fr/~pelachaud/).
 
-2) Clone this repository code to your computer and rename the root folder as "Seq\_AAE\_V1" . Put dataset into the
+2) Clone this repository code to your computer and rename the root folder as "Seq_AAE_V1" . 
 
 3) Install the relevant packages
 
    * Keras
    * matlotlib
+   
+4) Data Preprocessing: You should save the motions in EmilyaDataset into a npz file according to the readme.md file in the folder 'datasets/EmilyaDaset/'.
 
-4) For training the models in the paper, you should navigate to the 
+5) For training the models in the paper, you should navigate to the 
 "\Training" directory under the root directory of the project and there you can find the following five folders:
 
 Conditional\_SAAE				
